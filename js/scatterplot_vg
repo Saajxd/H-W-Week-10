@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "World Happiness Vs Life Expectancy",
+    "width": 500,
+    "height": 400,
+    "mark": "point",
+    "data": {
+        "url": "https://raw.githubusercontent.com/Saajxd/H-W-week-09/main/2019.csv"
+    },
+    "transform": [
+         {"filter": "datum.GDP_per_capita > 0"}
+    ],
+    "encoding": {
+        "x": {
+        "field": "GDP_per_capita",
+        "type": "quantitative"
+        },
+    "y": {
+        "field": "Score",
+        "type": "quantitative",
+        "title": "Score"
+    }, 
+    "color": {
+        "field": "Social support",
+        "type": "quantitative"
+    },
+    "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "Score", "type": "quantitative", "format": ","},
+        {"field": "GDP_per_capita", "type": "quantitative", "format": ","},
+        {"field": "Social support", "type": "quantitative", "format": ","}
+        ]
+}
+}
+
+
+
+
+
+    
+            
+           
+            
+            

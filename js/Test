@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "World Happiness Vs Life Expectancy",
+    "width": 500,
+    "height": 400,
+    "mark": "point",
+    "data": {
+        "url": "https://raw.githubusercontent.com/Saajxd/H-W-week-09/main/2019.csv"
+    },
+    "params": [
+    {
+    "name": "Happiness_Score_Above",
+    "value": 0,
+    "bind": {
+    "input": "range",
+    "min": 0,
+    "max": 7.63,
+    "step": 0.01,
+    "name": "Minimum Happiness Score: "
+    }
+    }
+    ],  
+    "transform": [
+         {"filter": "datum.GDP_per_capita > 0"},
+         {"filter": "datum.Score > Happiness_Score_Above"}
+    ],
+    "encoding": {
+        "x": {
+        "field": "GDP_per_capita",
+        "type": "quantitative"
+        },
+        "y": {
+            "field": "Score",
+            "type": "quantitative",
+            "title": "Score"
+        }, 
+    "layer":[{
+      "mark": {
+      "type": "text",
+      "align": "right",
+      "baseline": "middle",
+      "dx": -12,
+      "fontSize": 11.5,
+      "fontStyle": "italic"},
+      "encoding": {
+      "text": {"field": "Country", "type": "nominal"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand'|| datum['Country'] == 'Italy' || datum['Country'] == 'Yemen' || datum['Country'] == 'United States'",
+ "value": 1
+ },
+ "value": 0
+ }
+    }
+  }],
+    "color": {
+        "field": "Social support",
+        "type": "quantitative"
+    },
+    "tooltip": [
+    {"field": "Country", "type": "nominal"},
+    {"field": "Score", "type": "quantitative", "format": ","},
+    {"field": "GDP_per_capita", "type": "quantitative", "format": ","},
+    {"field": "Social support", "type": "quantitative", "format": ","}
+    ]
+}
+}
+
+
+
+
+
+
+
+
+
+    
+            
+           
+            
+            
